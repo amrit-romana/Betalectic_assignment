@@ -8,10 +8,10 @@ const Delete = () => {
   const [presentList, setPresentList] = useState(
     JSON.parse(localStorage.getItem("presentList") || "[]")
   );
-  const handleDelete = (j) => {
-      const updatedList = presentList.filter((i) => i.name !== i.target.value.name);
-      setPresentList(updatedList);
-   
+  const handleDelete = () => {
+    const updatedList = presentList.filter((pkg) => pkg.name !== packageInfo.name);
+    setPresentList(updatedList);
+    localStorage.setItem("presentList", JSON.stringify(updatedList)); // Update local storage if needed
     history('/');
   };
 
